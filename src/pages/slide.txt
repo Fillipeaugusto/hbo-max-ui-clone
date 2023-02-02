@@ -1,0 +1,78 @@
+	<div className="w-full px-5">
+					<div>
+						<span className="text-white text-2xl">Maiores sucessos bbbbb</span>
+						<div className="flex group relative">
+							<Swiper
+								// slidesPerView={2}
+								// spaceBetween={-17}
+								// slidesPerGroup={2}
+								navigation={true}
+								modules={[Navigation]}
+								breakpoints={{
+									'@0.00': {
+										slidesPerView: 2,
+										spaceBetween: -17,
+										slidesPerGroup: 2,
+									},
+									'@0.20': {
+										slidesPerView: 4,
+										spaceBetween: 5,
+										slidesPerGroup: 4,
+									},
+									// '@0.35': {
+									// 	slidesPerView: 2,
+									// 	spaceBetween: 5,
+									// 	slidesPerGroup: 5,
+									// },
+									// '@1.40': {
+									// 	slidesPerView: 5,
+									// 	slidesPerGroup: 5,
+									// },
+									'@1.50': {
+										slidesPerView: 7,
+										slidesPerGroup: 7,
+										spaceBetween: -17,
+									},
+								}}
+								className="mySwiper"
+							>
+								<div className="absolute z-50 w-full top-1/2 hidden group-hover:flex">
+									<span className="flex gap-4 w-full items-center justify-between ">
+										<button
+											className={`p-2 border-none rounded-full flex items-center justify-center  text-white  ${
+												swiperRef.current?.isBeginning && 'opacity-50 '
+											}`}
+											onClick={() => swiperRef.current?.slidePrev()}
+										>
+											<MdOutlineKeyboardArrowLeft size={40} />
+										</button>
+										<button
+											className={`p-2 border-none rounded-full  flex items-center justify-center text-white  ${
+												swiperRef.current?.isEnd && 'opacity-50 '
+											}`}
+											onClick={() => swiperRef.current?.slideNext()}
+										>
+											<MdOutlineKeyboardArrowRight size={40} />
+										</button>
+									</span>
+								</div>
+								{items.popular?.map((item: any) => {
+									return (
+										<SwiperSlide key={item.id} className="my-1">
+											<div className="w-full h-full max-w-[167px] max-h-[250.5px] sm:max-w-[203.75px] opacity-80 hover:opacity-100 transition-all hover:ring-2 hover:rounded-sm overflow-hidden hover:ring-violet-500  ">
+												<img
+													src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+													alt=""
+													className="w-full h-full object-cover"
+												/>
+												{/* <button className="w-14 h-14 border-2 flex items-center justify-center rounded-full hover:border hover:border-violet-600">
+													<FaPlay size={18} />
+												</button> */}
+											</div>
+										</SwiperSlide>
+									);
+								})}
+							</Swiper>
+						</div>
+					</div>
+				</div>
